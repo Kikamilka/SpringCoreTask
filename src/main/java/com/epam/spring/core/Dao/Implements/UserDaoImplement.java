@@ -7,7 +7,10 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository("userDao")
 public class UserDaoImplement implements UserDao {
 
     private final Map<String, User> users; // id в виде строки,а не числа

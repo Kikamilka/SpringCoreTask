@@ -1,8 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                            http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
-">
+    <context:component-scan base-package="com.epam.spring.core.Service"/>
+    <context:component-scan base-package="com.epam.spring.core.Dao"/>
+
+    <import resource="discount.xml"/>    
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>auditorium.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="user" class="com.epam.spring.core.Domain.User">
+        <property name="id" value="1"/>
+        <property name="name" value="Kamila Zaeva"/>
+        <property name="email" value="Kamila_Zaeva@epam.com"/>
+        <property name="birthday" value="19.01.1993"/>
+        <property name="tickets" ref="ticket"/>
+    </bean>
+
+    <bean id="ticket" class="com.epam.spring.core.Domain.Ticket">
+        <property name ="id" value="1a"/>
+        <property name="name" value="Ticket 1"/>
+        <property name="price" value="3.00$"/>
+    </bean>
+
+    <bean id="auditorium" class="com.epam.spring.core.Domain.Auditorium">
+        <property name="id" value="1"/>
+        <property name="name" value="${auditoriumName}"/>
+        <property name="seatsNumber" value="${seatsNumber}"/>
+        <property name="vipSeats" value="${vipSeats}"/>
+    </bean>
 
 </beans>

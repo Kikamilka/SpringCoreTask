@@ -6,10 +6,14 @@ import com.epam.spring.core.Domain.User;
 import com.epam.spring.core.Service.Interfaces.UserService;
 import java.util.Collections;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+@Service("userService")
 public class UserServiceImpement implements UserService{
 
+    @Autowired
     private UserDao userDao;
     
     @Override

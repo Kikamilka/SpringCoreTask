@@ -2,40 +2,38 @@ package com.epam.spring.core.Domain;
 
 public class Ticket {
 
-    private double price;
-    private String seat;
-    private boolean isBuyed;
+    private String price;
+    private String id;
+    private String name;
 
-    public Ticket(double price, String seat, boolean isBuyed) {
-        this.price = price;
-        this.seat = seat;
-        this.isBuyed = isBuyed;
+    public String getId() {
+        return id;
     }
 
-    public double getPrice() {
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
-    }
-
-    public String getSeat() {
-        return seat;
-    }
-
-    public void setSeat(String seat) {
-        this.seat = seat;
-    }
-
-    public void setIsBuyed(boolean isBuyed) {
-        this.isBuyed = isBuyed;
     }
 
     @Override
     public String toString() {
-        return "Ticket [price=" + price + ", seat=" + seat + ", isBuyed="
-                + isBuyed + "]";
+        return "Ticket [id=" + id + ", name=" + name + ", price="
+                + price + "]";
     }
 
 }

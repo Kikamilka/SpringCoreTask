@@ -4,27 +4,17 @@ import java.util.List;
 
 public class User {
 
-    private final String id;
+    private String id;
     private String name;
-    private String dayOfBirth;
+    private String birthday;
     private String email;
     private List<Ticket> tickets;
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", name=" + name + ", dayOfBirth="
-                + dayOfBirth + ", email=" + email
+        return "User [id=" + id + ", name=" + name + ", birthday="
+                + birthday + ", email=" + email
                 + "]";
-    }
-
-    public User(String id, String name, String dayOfBirth, String email) {        
-        // 04.07.1990 <- dd.MM.yyyy
-        //DateFormat format = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
-        //this.dayOfBirth = format.parse(dayOfBirth);
-        this.id = id;
-        this.name = name;
-        this.dayOfBirth = dayOfBirth;        
-        this.email = email;
     }
 
     public String getEmail() {
@@ -43,16 +33,20 @@ public class User {
         this.name = name;
     }
 
-    public void setDayOfBirth(String dayOfBirth) {
-        this.dayOfBirth = dayOfBirth;
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 
-    public String getDayOfBirth() {
-        return dayOfBirth;
+    public String getBirthday() {
+        return birthday;
     }
 
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public List<Ticket> getTickets() {

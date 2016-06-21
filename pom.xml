@@ -8,31 +8,27 @@
     <groupId>com.epam.spring.core</groupId>
     <artifactId>java-spring-core</artifactId>
     <version>1.0-SNAPSHOT</version>
-
-    <properties>
-        <spring.ver>4.3.0.RELEASE</spring.ver>
-    </properties>
-
+    
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring.ver}</version>
+            <version>4.3.0.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
-            <version>${spring.ver}</version>
+            <version>4.3.0.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
-            <version>${spring.ver}</version>
+            <version>4.3.0.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>${spring.ver}</version>
+            <version>4.3.0.RELEASE</version>
         </dependency>
     </dependencies>
     
@@ -53,6 +49,27 @@
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>com.epam.spring.core.App</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.4</version>
             </plugin>
         </plugins>
     </build>
