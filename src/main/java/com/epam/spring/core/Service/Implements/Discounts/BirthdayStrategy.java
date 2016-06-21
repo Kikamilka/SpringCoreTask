@@ -13,7 +13,9 @@ public class BirthdayStrategy implements DiscountStrategy{
     @Override
     public double getDiscount(User user, Date date) {
         double discount = 0;
-        if (dateFormat.format(date).equals(user.getBirthday())) {
+        String day = dateFormat.format(date).substring(0, 2);
+        String month = dateFormat.format(date).substring(3, 5);
+        if (day.equals(user.getBirthday().substring(0, 2)) && month.equals(user.getBirthday().substring(3, 5))) {
             discount = 0.05;
             System.out.println("User '" + user.getName() + "' had got 5% discount by Birthday Strategy");
         }

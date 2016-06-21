@@ -30,40 +30,44 @@ public class App {
     }
 
     public static void main(String[] args) {
+        
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-
-        User user = (User) context.getBean("user");
-        Auditorium auditorium = (Auditorium) context.getBean("auditorium");
+        ApplicationContext contextUsers = new ClassPathXmlApplicationContext("users.xml");
+        ApplicationContext contextAuditorium = new ClassPathXmlApplicationContext("auditorium.xml");
+        
+        User user = (User) contextUsers.getBean("user2");
+        Auditorium auditorium = (Auditorium) contextAuditorium.getBean("auditorium");
         UserService userService = (UserService) context.getBean("userService");
         EventService eventService = (EventService) context.getBean("eventService");
         AuditoriumService audirotiumService = (AuditoriumService) context.getBean("auditoriumService");
         DiscountService discountService = (DiscountService) context.getBean("discountService");
+        
         App app = new App(userService, eventService, audirotiumService, discountService);
+        
         app.exec(user, auditorium);
     }
 
     public void exec(User user, Auditorium auditorium) {
-        //registrate user
+
         userService.register(user);
-        //get list of booked tickets
+
         List<Ticket> tickets = userService.getBookedTickets(user);
         System.out.println("Tickets for user '" + user.getName() + "':");
         for (Ticket ticket : tickets) {
             System.out.println(ticket);
         }
-        //add auditorium
+
         audirotiumService.addAuditorium(auditorium);
         System.out.println("Avalable auditoriums: ");
         for (Auditorium avalAuditorium : audirotiumService.getAuditoriums()) {
             System.out.println(avalAuditorium);
         }
-        //create event
-        Date date = new Date();
-        Event event = eventService.create("1", "The Best Comedy", date, date, 3.5, RatingEnum.HIGH);
-        //assign auditorium for event
+
+        Date date = new Date(); //текущая дата
+        Event event = eventService.create("001", "The Trash", date, date, 3.5, RatingEnum.HIGH);
         eventService.assignAuditorium(event, auditorium, date, date);
-        System.out.println("Created event: " + eventService.getByName("The Best Comedy"));
-        //get discount for user
+        System.out.println("Created event: " + eventService.getByName("The Trash"));
+
         discountService.getDiscount(user, event, date);
     }
 }

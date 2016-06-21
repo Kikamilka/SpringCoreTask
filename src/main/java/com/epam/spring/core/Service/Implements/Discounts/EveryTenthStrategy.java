@@ -13,7 +13,7 @@ public class EveryTenthStrategy implements DiscountStrategy{
     public double getDiscount(User user, Date date) {
         double discount = 0;
         List<Ticket> purchesedTickets = user.getTickets();
-        if (null != user.getTickets() && !purchesedTickets.isEmpty() && 0 == purchesedTickets.size()%10 ) {
+        if (user.getTickets() != null && !purchesedTickets.isEmpty() && purchesedTickets.size()%10 == 0 ) {
             discount = 0.5;
             System.out.println("User ' " + user.getName() + "' has got 50% discount by Every 10th Tiket Strategy");
         }
