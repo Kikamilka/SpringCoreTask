@@ -1,5 +1,6 @@
 package com.epam.spring.core;
 
+import com.epam.spring.core.Aspects.CounterAspect;
 import com.epam.spring.core.Domain.Auditorium;
 import com.epam.spring.core.Domain.Event;
 import com.epam.spring.core.Domain.RatingEnum;
@@ -20,13 +21,15 @@ public class App {
     private final EventService eventService;
     private final AuditoriumService audirotiumService;
     private final DiscountService discountService;
+    private final CounterAspect counterAspect;
 
     App(UserService userService, EventService eventService, AuditoriumService audirotiumService,
-            DiscountService discountService) {
+            DiscountService discountService, CounterAspect counterAspect) {
         this.userService = userService;
         this.eventService = eventService;
         this.audirotiumService = audirotiumService;
         this.discountService = discountService;
+        this.counterAspect = counterAspect;
     }
 
     public static void main(String[] args) {
@@ -41,8 +44,9 @@ public class App {
         EventService eventService = (EventService) context.getBean("eventService");
         AuditoriumService audirotiumService = (AuditoriumService) context.getBean("auditoriumService");
         DiscountService discountService = (DiscountService) context.getBean("discountService");
+        CounterAspect counterAspect = (CounterAspect) context.getBean("counterAspect");
         
-        App app = new App(userService, eventService, audirotiumService, discountService);
+        App app = new App(userService, eventService, audirotiumService, discountService, counterAspect);
         
         app.exec(user, auditorium);
     }
@@ -69,5 +73,7 @@ public class App {
         System.out.println("Created event: " + eventService.getByName("The Trash"));
 
         discountService.getDiscount(user, event, date);
+        
+        counterAspect.getCounterAspectInfo();
     }
 }

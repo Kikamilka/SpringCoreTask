@@ -3,16 +3,22 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:util="http://www.springframework.org/schema/util"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
-                            http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
-                            http://www.springframework.org/schema/context
-                            http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+                        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context-4.3.xsd
+                        http://www.springframework.org/schema/aop
+                        http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 
     <context:component-scan base-package="com.epam.spring.core.Service"/>
     <context:component-scan base-package="com.epam.spring.core.Dao"/>
+    <context:component-scan base-package="com.epam.spring.core.Aspects"/>
 
     <import resource="discount.xml"/>
     <import resource="users.xml"/>
-    <import resource="auditorium.xml"/>   
+    <import resource="auditorium.xml"/>  
+    
+    <aop:aspectj-autoproxy /> 
 
 </beans>
