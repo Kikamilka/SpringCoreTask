@@ -1,6 +1,5 @@
 package com.epam.spring.core.Service.Implements;
 
-import com.epam.spring.core.Dao.Interfaces.BookingDao;
 import com.epam.spring.core.Domain.Event;
 import com.epam.spring.core.Domain.Ticket;
 import com.epam.spring.core.Domain.User;
