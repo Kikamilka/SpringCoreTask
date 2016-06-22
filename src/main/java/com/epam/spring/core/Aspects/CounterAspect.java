@@ -22,33 +22,33 @@ public class CounterAspect {
     public void countGetEventByName() {
         eventCounter++;
         counter.put(EVENT_KEY, eventCounter);
-        System.out.println("was called countGetEventByName()");
+        //System.out.println("was called countGetEventByName()");
     }
 
     @AfterReturning("execution(* com.epam.spring.core.Service.Implements.BookingServiceImplement.getTicketPrice(..))")
     public void countGetTicketPrice() {
         priceCounter++;
         counter.put(PRICE_KEY, priceCounter);
-        System.out.println("was called countGetTicketPrice()");
+        //System.out.println("was called countGetTicketPrice()");
     }
 
     @AfterReturning("execution(* com.epam.spring.core.Service.Implements.BookingServiceImplement.bookTicket(..))")
     public void countBookTicket() {
         ticketCounter++;
         counter.put(TICKET_KEY, ticketCounter);
-        System.out.println("was called countBookTicket()");
+        //System.out.println("was called countBookTicket()");
     }
 
     public void getCounterAspectInfo() {
         int count;
-        count = (counter.get(EVENT_KEY) != 0) ? counter.get(EVENT_KEY) : 0;
-        System.out.println("Get event by name CounterAspect was called " + count + " times");
+        count = (counter.get(EVENT_KEY) != null) ? counter.get(EVENT_KEY) : 0;
+        System.out.println("Get event by name (CounterAspect) was called " + count + " times");
 
-        count = (counter.get(PRICE_KEY) != 0) ? counter.get(PRICE_KEY) : 0;
-        System.out.println("Get ticket price CounterAspect was called " + count + " times");
+        count = (counter.get(PRICE_KEY) != null) ? counter.get(PRICE_KEY) : 0;
+        System.out.println("Get ticket price (CounterAspect) was called " + count + " times");
 
-        count = (counter.get(TICKET_KEY) != 0) ? counter.get(TICKET_KEY) : 0;
-        System.out.println("Book ticket CounterAspect was called " + count + " times");
+        count = (counter.get(TICKET_KEY) != null) ? counter.get(TICKET_KEY) : 0;
+        System.out.println("Book ticket (CounterAspect) was called " + count + " times");
     }
 
 }

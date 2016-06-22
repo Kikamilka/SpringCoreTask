@@ -20,7 +20,7 @@
         <property name="id" value="2"/>
         <property name="name" value="Vasya Pupkin"/>
         <property name="email" value="Vasya_Pupkin@epam.com"/>
-        <property name="birthday" value="21.06.1990"/>
+        <property name="birthday" value="22.06.1990"/>
         <property name="tickets" ref="ticket2"/>
     </bean>
     

@@ -1,6 +1,7 @@
 package com.epam.spring.core;
 
 import com.epam.spring.core.Aspects.CounterAspect;
+import com.epam.spring.core.Aspects.DiscountAspect;
 import com.epam.spring.core.Domain.Auditorium;
 import com.epam.spring.core.Domain.Event;
 import com.epam.spring.core.Domain.RatingEnum;
@@ -22,14 +23,16 @@ public class App {
     private final AuditoriumService audirotiumService;
     private final DiscountService discountService;
     private final CounterAspect counterAspect;
+    private final DiscountAspect discountAspect;
 
     App(UserService userService, EventService eventService, AuditoriumService audirotiumService,
-            DiscountService discountService, CounterAspect counterAspect) {
+            DiscountService discountService, CounterAspect counterAspect, DiscountAspect discountAspect) {
         this.userService = userService;
         this.eventService = eventService;
         this.audirotiumService = audirotiumService;
         this.discountService = discountService;
         this.counterAspect = counterAspect;
+        this.discountAspect = discountAspect;
     }
 
     public static void main(String[] args) {
@@ -44,9 +47,11 @@ public class App {
         EventService eventService = (EventService) context.getBean("eventService");
         AuditoriumService audirotiumService = (AuditoriumService) context.getBean("auditoriumService");
         DiscountService discountService = (DiscountService) context.getBean("discountService");
-        CounterAspect counterAspect = (CounterAspect) context.getBean("counterAspect");
         
-        App app = new App(userService, eventService, audirotiumService, discountService, counterAspect);
+        CounterAspect counterAspect = (CounterAspect) context.getBean("counterAspect");
+        DiscountAspect discountAspect = (DiscountAspect) context.getBean("discountAspect");
+        
+        App app = new App(userService, eventService, audirotiumService, discountService, counterAspect, discountAspect);
         
         app.exec(user, auditorium);
     }
@@ -75,5 +80,6 @@ public class App {
         discountService.getDiscount(user, event, date);
         
         counterAspect.getCounterAspectInfo();
+        discountAspect.getDiscountAspectInfo(user);
     }
 }
