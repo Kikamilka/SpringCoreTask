@@ -3,23 +3,29 @@ package com.epam.spring.core.Domain;
 public class Ticket {
 
     private String price;
-    private String id;
-    private String name;
+    private String seat;
+    private String nameEvent;
 
-    public String getId() {
-        return id;
+    public Ticket(String price, String seat, String nameEvent) {
+        this.price = price;
+        this.seat = seat;
+        this.nameEvent = nameEvent;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getSeat() {
+        return seat;
+    }
+
+    public void setSeat(String seat) {
+        this.seat = seat;
     }
 
     public String getName() {
-        return name;
+        return nameEvent;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.nameEvent = name;
     }
 
     public String getPrice() {
@@ -32,7 +38,7 @@ public class Ticket {
 
     @Override
     public String toString() {
-        return "Ticket [id=" + id + ", name=" + name + ", price="
+        return "Ticket [seat=" + seat + ", nameEvent=" + nameEvent + ", price="
                 + price + "]";
     }
 

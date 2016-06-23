@@ -34,7 +34,7 @@
         <constructor-arg ref="dataSource"/>
     </bean>
 
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" destroy-method="close">
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <constructor-arg ref="dataSource"/>
 		
         <property name="driverClassName" value="${jdbc.driverClassName}"/>
@@ -43,4 +43,6 @@
         <property name="password" value="${jdbc.password}"/>
 
     </bean>
+    
+
 </beans>

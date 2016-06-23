@@ -68,4 +68,9 @@ public class UserDaoImplement implements UserDao {
         return tickets;
     }
 
+    @Override
+    public List<User> getAll() {        
+        return (List<User>) users.values();    
+    }
+
 }

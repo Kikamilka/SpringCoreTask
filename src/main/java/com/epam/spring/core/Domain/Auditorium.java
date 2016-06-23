@@ -7,6 +7,12 @@ public class Auditorium {
     private int seatsNumber;
     private String vipSeats;
 
+    public Auditorium(String id, String name, int seatsNumber) {
+        this.id = id;
+        this.name = name;
+        this.seatsNumber = seatsNumber;
+    }
+
     public String getId() {
         return id;
     }
