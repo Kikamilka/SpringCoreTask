@@ -1,13 +1,13 @@
 package com.epam.spring.core.services.interfaces;
 
 import com.epam.spring.core.domain.Auditorium;
-import java.util.Set;
+import java.util.List;
 
 public interface AuditoriumService {
     
     void addAuditorium(Auditorium auditorium);
     
-    Set<Auditorium> getAuditoriums();
+    List<Auditorium> getAuditoriums();
     
     int getSeatsNumber(Auditorium auditorium);
     

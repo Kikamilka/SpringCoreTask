@@ -3,10 +3,8 @@ package com.epam.spring.core.dao.impls;
 import com.epam.spring.core.dao.impls.mappers.AuditoriumMapper;
 import com.epam.spring.core.dao.interfaces.AuditoriumDao;
 import com.epam.spring.core.domain.Auditorium;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.util.StringUtils;
 
 public class DbAuditoriumDaoImplement implements AuditoriumDao {
 
@@ -18,10 +16,11 @@ public class DbAuditoriumDaoImplement implements AuditoriumDao {
 
     @Override
     public void add(Auditorium auditorium) {
-        jdbcTemplate.update("INSERT INTO bookingservice.auditorium VALUES (?, ?, ?)",
+        jdbcTemplate.update("INSERT INTO bookingservice.auditorium VALUES (?, ?, ?, ?)",
                 null,
                 auditorium.getName(),
-                auditorium.getSeatsNumber());
+                auditorium.getSeatsNumber(),
+                auditorium.getVipSeats());
         auditorium.setId(jdbcTemplate.queryForObject("SELECT * FROM bookingservice.auditorium "
                 + "WHERE name = ?",
                 new Object[]{auditorium.getName()},
@@ -29,17 +28,24 @@ public class DbAuditoriumDaoImplement implements AuditoriumDao {
     }
 
     @Override
-    public Set<Auditorium> getAuditoriums() {
-        return null;
+    public List<Auditorium> getAuditoriums() {
+        return jdbcTemplate.query("SELECT * FROM bookingservice.auditorium ",
+                new AuditoriumMapper());
     }
 
     @Override
     public int getSeatsNumber(String auditoriumId) {
-        return 0;
+        return jdbcTemplate.queryForObject("SELECT * FROM bookingservice.auditorium "
+                + "WHERE id = ?",
+                new Object[]{auditoriumId},
+                new AuditoriumMapper()).getSeatsNumber();
     }
 
     @Override
     public String getVipSeats(String auditoriumId) {
-        return null;
+        return jdbcTemplate.queryForObject("SELECT * FROM bookingservice.auditorium " +
+                        "WHERE idAuditorium = ?",
+                new Object[] {auditoriumId},
+                new AuditoriumMapper()).getVipSeats();
     }
 }

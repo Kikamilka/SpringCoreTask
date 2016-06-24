@@ -3,7 +3,7 @@ package com.epam.spring.core.services.impls;
 import com.epam.spring.core.dao.interfaces.AuditoriumDao;
 import com.epam.spring.core.domain.Auditorium;
 import com.epam.spring.core.services.interfaces.AuditoriumService;
-import java.util.Set;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +27,7 @@ public class AuditoriumServiceImplement implements AuditoriumService {
     }
 
     @Override
-    public Set<Auditorium> getAuditoriums() {
+    public List<Auditorium> getAuditoriums() {
         return auditoriumDao.getAuditoriums();
     }
 

@@ -6,11 +6,11 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
-//@Aspect
+@Aspect
 //Component("counterAspect")
 public class CounterAspect {
 
-    private final Map<String, Integer> counter = new HashMap<>();
+    private final Map<String, Integer> counter  = new HashMap<>();
     int eventCounter = 0;
     int priceCounter = 0;
     int ticketCounter = 0;

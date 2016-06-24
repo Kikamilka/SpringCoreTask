@@ -43,8 +43,8 @@ public class App {
     }
 
     public static void main(String[] args) {
-
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+    }
+        /*ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
         ApplicationContext contextUsers = new ClassPathXmlApplicationContext("users.xml");
         ApplicationContext contextAuditorium = new ClassPathXmlApplicationContext("auditorium.xml");
 
@@ -105,5 +105,5 @@ public class App {
         for (Ticket ticketU : tickets) {
             System.out.println(ticketU);
         }
-    }
+    }*/
 }

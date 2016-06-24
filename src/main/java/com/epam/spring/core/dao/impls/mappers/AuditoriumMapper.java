@@ -12,7 +12,7 @@ public class AuditoriumMapper implements RowMapper<Auditorium> {
         return new Auditorium(
                 resultSet.getString("id"),
                 resultSet.getString("name"),
-                resultSet.getInt("seatsNumber"));
-
+                resultSet.getInt("seatsNumber"),
+                resultSet.getString("vipSeats"));
     }
 }

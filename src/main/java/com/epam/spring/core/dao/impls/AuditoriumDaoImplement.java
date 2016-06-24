@@ -2,10 +2,10 @@ package com.epam.spring.core.dao.impls;
 
 import com.epam.spring.core.dao.interfaces.AuditoriumDao;
 import com.epam.spring.core.domain.Auditorium;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
@@ -25,8 +25,8 @@ public class AuditoriumDaoImplement implements AuditoriumDao {
     }
 
     @Override
-    public Set<Auditorium> getAuditoriums() {
-        return new HashSet<>(auditoriums.values());
+    public List<Auditorium> getAuditoriums() {
+        return new ArrayList<>(auditoriums.values());
     }
 
     @Override

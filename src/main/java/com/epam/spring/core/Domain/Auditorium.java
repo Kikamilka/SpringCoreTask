@@ -7,10 +7,11 @@ public class Auditorium {
     private int seatsNumber;
     private String vipSeats;
 
-    public Auditorium(String id, String name, int seatsNumber) {
+    public Auditorium(String id, String name, int seatsNumber, String vipSeats) {
         this.id = id;
         this.name = name;
         this.seatsNumber = seatsNumber;
+        this.vipSeats = vipSeats;
     }
 
     public String getId() {
