@@ -1,8 +1,8 @@
-package com.epam.spring.core.Service.Interfaces;
+package com.epam.spring.core.services.interfaces;
 
-import com.epam.spring.core.Domain.Auditorium;
-import com.epam.spring.core.Domain.Event;
-import com.epam.spring.core.Domain.RatingEnum;
+import com.epam.spring.core.domain.Auditorium;
+import com.epam.spring.core.domain.Event;
+import com.epam.spring.core.domain.RatingEnum;
 import java.util.Date;
 import java.util.List;
 

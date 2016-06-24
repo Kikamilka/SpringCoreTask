@@ -1,4 +1,4 @@
-package com.epam.spring.core.Aspects;
+package com.epam.spring.core.aspects;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,8 +6,8 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
-@Aspect
-@Component("counterAspect")
+//@Aspect
+//Component("counterAspect")
 public class CounterAspect {
 
     private final Map<String, Integer> counter = new HashMap<>();

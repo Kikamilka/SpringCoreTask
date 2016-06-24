@@ -1,7 +1,7 @@
-package com.epam.spring.core.Service.Interfaces;
+package com.epam.spring.core.services.interfaces;
 
-import com.epam.spring.core.Domain.Ticket;
-import com.epam.spring.core.Domain.User;
+import com.epam.spring.core.domain.Ticket;
+import com.epam.spring.core.domain.User;
 import java.util.List;
 
 public interface UserService {

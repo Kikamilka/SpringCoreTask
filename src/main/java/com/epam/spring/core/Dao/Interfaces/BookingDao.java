@@ -1,4 +1,4 @@
-package com.epam.spring.core.Dao.Interfaces;
+package com.epam.spring.core.dao.interfaces;
 
 public interface BookingDao {
     

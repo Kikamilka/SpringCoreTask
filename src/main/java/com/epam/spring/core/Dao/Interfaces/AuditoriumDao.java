@@ -1,6 +1,6 @@
-package com.epam.spring.core.Dao.Interfaces;
+package com.epam.spring.core.dao.interfaces;
 
-import com.epam.spring.core.Domain.Auditorium;
+import com.epam.spring.core.domain.Auditorium;
 import java.util.Set;
 
 public interface AuditoriumDao {

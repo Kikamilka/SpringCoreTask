@@ -1,11 +1,11 @@
-package com.epam.spring.core.Service.Implements;
+package com.epam.spring.core.services.impls;
 
-import com.epam.spring.core.Domain.Event;
-import com.epam.spring.core.Domain.Ticket;
-import com.epam.spring.core.Domain.User;
-import com.epam.spring.core.Service.Interfaces.BookingService;
-import com.epam.spring.core.Service.Interfaces.DiscountService;
-import com.epam.spring.core.Service.Interfaces.EventService;
+import com.epam.spring.core.domain.Event;
+import com.epam.spring.core.domain.Ticket;
+import com.epam.spring.core.domain.User;
+import com.epam.spring.core.services.interfaces.BookingService;
+import com.epam.spring.core.services.interfaces.DiscountService;
+import com.epam.spring.core.services.interfaces.EventService;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;

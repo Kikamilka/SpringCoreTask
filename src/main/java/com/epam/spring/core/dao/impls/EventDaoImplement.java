@@ -1,8 +1,8 @@
-package com.epam.spring.core.Dao.Implements;
+package com.epam.spring.core.dao.impls;
 
-import com.epam.spring.core.Dao.Interfaces.EventDao;
-import com.epam.spring.core.Domain.Auditorium;
-import com.epam.spring.core.Domain.Event;
+import com.epam.spring.core.dao.interfaces.EventDao;
+import com.epam.spring.core.domain.Auditorium;
+import com.epam.spring.core.domain.Event;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

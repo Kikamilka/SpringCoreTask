@@ -1,9 +1,9 @@
-package com.epam.spring.core.Service.Implements;
+package com.epam.spring.core.services.impls;
 
-import com.epam.spring.core.Dao.Interfaces.UserDao;
-import com.epam.spring.core.Domain.Ticket;
-import com.epam.spring.core.Domain.User;
-import com.epam.spring.core.Service.Interfaces.UserService;
+import com.epam.spring.core.dao.interfaces.UserDao;
+import com.epam.spring.core.domain.Ticket;
+import com.epam.spring.core.domain.User;
+import com.epam.spring.core.services.interfaces.UserService;
 import java.util.Collections;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

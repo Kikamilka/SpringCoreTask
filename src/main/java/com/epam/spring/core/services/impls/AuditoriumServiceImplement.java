@@ -1,8 +1,8 @@
-package com.epam.spring.core.Service.Implements;
+package com.epam.spring.core.services.impls;
 
-import com.epam.spring.core.Dao.Interfaces.AuditoriumDao;
-import com.epam.spring.core.Domain.Auditorium;
-import com.epam.spring.core.Service.Interfaces.AuditoriumService;
+import com.epam.spring.core.dao.interfaces.AuditoriumDao;
+import com.epam.spring.core.domain.Auditorium;
+import com.epam.spring.core.services.interfaces.AuditoriumService;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,6 @@ public class AuditoriumServiceImplement implements AuditoriumService {
     @Autowired
     private AuditoriumDao auditoriumDao;
 
-    @Override
     public void addAuditorium(Auditorium auditorium) {
         auditoriumDao.add(auditorium);
     }
@@ -23,13 +22,12 @@ public class AuditoriumServiceImplement implements AuditoriumService {
         return auditoriumDao.getAuditoriums();
     }
 
-    @Override
     public int getSeatsNumber(Auditorium auditorium) {
         return auditoriumDao.getSeatsNumber(auditorium.getId());
     }
 
-    @Override
     public String getVipSeats(Auditorium auditorium) {
         return auditoriumDao.getVipSeats(auditorium.getId());
     }
+
 }

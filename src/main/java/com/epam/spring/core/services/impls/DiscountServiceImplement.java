@@ -1,9 +1,9 @@
-package com.epam.spring.core.Service.Implements;
+package com.epam.spring.core.services.impls;
 
-import com.epam.spring.core.Domain.Event;
-import com.epam.spring.core.Domain.User;
-import com.epam.spring.core.Service.Implements.Discounts.DiscountStrategy;
-import com.epam.spring.core.Service.Interfaces.DiscountService;
+import com.epam.spring.core.domain.Event;
+import com.epam.spring.core.domain.User;
+import com.epam.spring.core.services.impls.discounts.DiscountStrategy;
+import com.epam.spring.core.services.interfaces.DiscountService;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

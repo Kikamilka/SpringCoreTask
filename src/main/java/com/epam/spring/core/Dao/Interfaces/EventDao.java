@@ -1,7 +1,7 @@
-package com.epam.spring.core.Dao.Interfaces;
+package com.epam.spring.core.dao.interfaces;
 
-import com.epam.spring.core.Domain.Auditorium;
-import com.epam.spring.core.Domain.Event;
+import com.epam.spring.core.domain.Auditorium;
+import com.epam.spring.core.domain.Event;
 import java.util.List;
 
 public interface EventDao {

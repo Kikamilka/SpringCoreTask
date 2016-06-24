@@ -1,4 +1,4 @@
-package com.epam.spring.core.Domain;
+package com.epam.spring.core.domain;
 
 public enum RatingEnum {
 

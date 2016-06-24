@@ -1,7 +1,7 @@
-package com.epam.spring.core.Dao.Implements;
+package com.epam.spring.core.dao.impls;
 
-import com.epam.spring.core.Dao.Interfaces.AuditoriumDao;
-import com.epam.spring.core.Domain.Auditorium;
+import com.epam.spring.core.dao.interfaces.AuditoriumDao;
+import com.epam.spring.core.domain.Auditorium;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;

@@ -1,7 +1,7 @@
-package com.epam.spring.core.Dao.Interfaces;
+package com.epam.spring.core.dao.interfaces;
 
-import com.epam.spring.core.Domain.Ticket;
-import com.epam.spring.core.Domain.User;
+import com.epam.spring.core.domain.Ticket;
+import com.epam.spring.core.domain.User;
 import java.util.List;
 
 public interface UserDao {

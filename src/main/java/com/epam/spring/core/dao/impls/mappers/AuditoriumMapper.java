@@ -1,6 +1,6 @@
-package com.epam.spring.core.Dao.Implements.Mappers;
+package com.epam.spring.core.dao.impls.mappers;
 
-import com.epam.spring.core.Domain.Auditorium;
+import com.epam.spring.core.domain.Auditorium;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;

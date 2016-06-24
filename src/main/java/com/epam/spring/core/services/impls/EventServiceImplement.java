@@ -1,10 +1,10 @@
-package com.epam.spring.core.Service.Implements;
+package com.epam.spring.core.services.impls;
 
-import com.epam.spring.core.Dao.Interfaces.EventDao;
-import com.epam.spring.core.Domain.Auditorium;
-import com.epam.spring.core.Domain.Event;
-import com.epam.spring.core.Domain.RatingEnum;
-import com.epam.spring.core.Service.Interfaces.EventService;
+import com.epam.spring.core.dao.interfaces.EventDao;
+import com.epam.spring.core.domain.Auditorium;
+import com.epam.spring.core.domain.Event;
+import com.epam.spring.core.domain.RatingEnum;
+import com.epam.spring.core.services.interfaces.EventService;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;

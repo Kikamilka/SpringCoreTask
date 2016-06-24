@@ -1,7 +1,7 @@
-package com.epam.spring.core.Service.Implements.Discounts;
+package com.epam.spring.core.services.impls.discounts;
 
-import com.epam.spring.core.Domain.Ticket;
-import com.epam.spring.core.Domain.User;
+import com.epam.spring.core.domain.Ticket;
+import com.epam.spring.core.domain.User;
 import java.util.Date;
 import java.util.List;
 import org.springframework.stereotype.Component;

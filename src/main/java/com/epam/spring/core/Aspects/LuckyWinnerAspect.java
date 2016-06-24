@@ -1,12 +1,10 @@
-package com.epam.spring.core.Aspects;
+package com.epam.spring.core.aspects;
 
-import com.epam.spring.core.Domain.Ticket;
+import com.epam.spring.core.domain.Ticket;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
-@Aspect
-@Component("luckyWinnerAspect")
 public class LuckyWinnerAspect {
 
     private int luckyTicketsCount;

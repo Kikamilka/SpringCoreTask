@@ -1,4 +1,4 @@
-package com.epam.spring.core.Dao.Implements;
+package com.epam.spring.core.dao.impls;
 
 import org.springframework.stereotype.Repository;
 

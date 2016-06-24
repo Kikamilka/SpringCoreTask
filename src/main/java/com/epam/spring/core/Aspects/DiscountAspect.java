@@ -1,14 +1,14 @@
-package com.epam.spring.core.Aspects;
+package com.epam.spring.core.aspects;
 
-import com.epam.spring.core.Domain.User;
+import com.epam.spring.core.domain.User;
 import java.util.HashMap;
 import java.util.Map;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
-@Aspect
-@Component("discountAspect")
+//@Aspect
+//@Component("discountAspect")
 public class DiscountAspect {
 
     private final Map<User, Integer> discountCounterForUser = new HashMap<>();

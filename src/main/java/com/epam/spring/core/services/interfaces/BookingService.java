@@ -1,8 +1,8 @@
-package com.epam.spring.core.Service.Interfaces;
+package com.epam.spring.core.services.interfaces;
 
-import com.epam.spring.core.Domain.Event;
-import com.epam.spring.core.Domain.Ticket;
-import com.epam.spring.core.Domain.User;
+import com.epam.spring.core.domain.Event;
+import com.epam.spring.core.domain.Ticket;
+import com.epam.spring.core.domain.User;
 import java.util.Date;
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package com.epam.spring.core.Service.Implements.Discounts;
+package com.epam.spring.core.services.impls.discounts;
 
-import com.epam.spring.core.Domain.User;
+import com.epam.spring.core.domain.User;
 import java.util.Date;
 
 public interface DiscountStrategy {
