@@ -16,14 +16,22 @@ import org.springframework.stereotype.Service;
 
 @Service("bookingService")
 public class BookingServiceImplement implements BookingService {
-    
+
     @Autowired
     private EventService eventService;
-    
+
     @Autowired
     private DiscountService discountService;
 
     private final Map<User, List<Ticket>> bookedTickets = new HashMap<>();
+
+    public BookingServiceImplement() {
+    }
+
+    public BookingServiceImplement(EventService eventService, DiscountService discountService) {
+        this.eventService = eventService;
+        this.discountService = discountService;
+    }
 
     @Override
     public double getTicketPrice(Event event, Date date, Date time, int seats, User user) {

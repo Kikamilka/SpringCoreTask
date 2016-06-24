@@ -5,7 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 ">
 
-    <bean id="discountService" class="com.epam.spring.core.Service.Implements.DiscountServiceImplement">
+    <bean id="discountService" class="com.epam.spring.core.services.impls.DiscountServiceImplement">
         <property name="discountStrategyList">
             <list>
                 <bean id="birthdayStrategy" class="com.epam.spring.core.Service.Implements.Discounts.BirthdayStrategy"/>

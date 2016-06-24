@@ -11,11 +11,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 @Service("userService")
-public class UserServiceImpement implements UserService{
+public class UserServiceImpement implements UserService {
 
     @Autowired
     private UserDao userDao;
-    
+
     @Override
     public void register(User user) {
         if (null != user) {
@@ -23,6 +23,13 @@ public class UserServiceImpement implements UserService{
         } else {
             System.out.println("User should't be null");
         }
+    }
+
+    public UserServiceImpement() {
+    }
+
+    public UserServiceImpement(UserDao userDao) {
+        this.userDao = userDao;
     }
 
     @Override
@@ -52,8 +59,8 @@ public class UserServiceImpement implements UserService{
     @Override
     public List<Ticket> getBookedTickets(User user) {
         return null != user && null != user.getId()
-            ? userDao.getBookedTickets(user.getId())
-            : Collections.<Ticket>emptyList();
+                ? userDao.getBookedTickets(user.getId())
+                : Collections.<Ticket>emptyList();
     }
-    
+
 }

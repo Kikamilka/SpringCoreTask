@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:util="http://www.springframework.org/schema/util"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
-                        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
-                        http://www.springframework.org/schema/context
-                        http://www.springframework.org/schema/context/spring-context-4.3.xsd
-                        http://www.springframework.org/schema/aop
-                        http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+                        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
-    <context:component-scan base-package="com.epam.spring.core.Service"/>
+    <import resource="services.xml"/>
+    <import resource="aspects.xml"/>
+    
+    
+<!--    <bean id="app" class="com.epam.training.spring.core.practical.App">
+        <constructor-arg index="0" ref="userService"/>
+        <constructor-arg index="1" ref="auditoriumService"/>
+        <constructor-arg index="2" ref="eventService"/>
+        <property name="emailUser" value="b@epam.com"/>
+        <property name="nameEvent" value="Event_2"/>
+    </bean>  -->
+</beans>
+
+<!--    <context:component-scan base-package="com.epam.spring.core.Service"/>
     <context:component-scan base-package="com.epam.spring.core.Dao"/>
     <context:component-scan base-package="com.epam.spring.core.Aspects"/>
 
@@ -20,29 +26,6 @@
     <import resource="auditorium.xml"/>  
     
     <aop:aspectj-autoproxy /> 
-
-    
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="jdbc">
-            <list>
-                <value>jdbc.properties</value>
-            </list>
-        </property>
-    </bean>
-    
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <constructor-arg ref="dataSource"/>
-    </bean>
-
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <constructor-arg ref="dataSource"/>
-		
-        <property name="driverClassName" value="${jdbc.driverClassName}"/>
-        <property name="url" value="${jdbc.url}"/>
-        <property name="username" value="${jdbc.username}"/>
-        <property name="password" value="${jdbc.password}"/>
-
-    </bean>
     
 
-</beans>
+</beans> -->

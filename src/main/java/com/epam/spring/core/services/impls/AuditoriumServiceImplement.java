@@ -13,6 +13,15 @@ public class AuditoriumServiceImplement implements AuditoriumService {
     @Autowired
     private AuditoriumDao auditoriumDao;
 
+    public AuditoriumServiceImplement(AuditoriumDao auditoriumDao) {
+        this.auditoriumDao = auditoriumDao;
+    }
+
+    public AuditoriumServiceImplement() {
+    }
+
+    
+    @Override
     public void addAuditorium(Auditorium auditorium) {
         auditoriumDao.add(auditorium);
     }
@@ -22,10 +31,12 @@ public class AuditoriumServiceImplement implements AuditoriumService {
         return auditoriumDao.getAuditoriums();
     }
 
+    @Override
     public int getSeatsNumber(Auditorium auditorium) {
         return auditoriumDao.getSeatsNumber(auditorium.getId());
     }
 
+    @Override
     public String getVipSeats(Auditorium auditorium) {
         return auditoriumDao.getVipSeats(auditorium.getId());
     }

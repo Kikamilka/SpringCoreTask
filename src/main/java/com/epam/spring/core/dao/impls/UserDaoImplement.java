@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.stereotype.Repository;
 
-@Repository("userDao")
+//@Repository("userDao")
 public class UserDaoImplement implements UserDao {
 
     private final Map<String, User> users;

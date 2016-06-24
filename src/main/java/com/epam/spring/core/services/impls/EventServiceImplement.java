@@ -20,11 +20,18 @@ public class EventServiceImplement implements EventService {
 
     @Autowired
     private EventDao eventDao;
-    
+
     private final Map<String, Event> events = new HashMap<>();
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy"); // 04.07.1990 <- dd.MM.yyyy
     private final SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
-    
+
+    public EventServiceImplement() {
+    }
+
+    public EventServiceImplement(EventDao eventDao) {
+        this.eventDao = eventDao;
+    }
+
     @Override
     public Event create(String id, String name, Date airDate, Date airTime, double price, RatingEnum rating) {
         Event event = new Event(id, name, dateFormat.format(airDate), timeFormat.format(airTime), price, rating, null);
@@ -55,7 +62,5 @@ public class EventServiceImplement implements EventService {
             System.out.println("Event/Auditorium shouldn't be null");
         }
     }
-    
-    
 
 }
