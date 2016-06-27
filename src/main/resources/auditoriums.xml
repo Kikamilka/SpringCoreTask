@@ -16,13 +16,20 @@
         </property>
     </bean>
     
-    <bean id="auditorium1" class="com.epam.spring.core.domain.Auditorium">
+   <!-- <bean id="auditorium1" class="com.epam.spring.core.domain.Auditorium">
         <constructor-arg index="0" value="1"/>
         <constructor-arg index="1" value="${auditoriumName}"/>
         <constructor-arg index="2" value="${seatsNumber}"/>
         <constructor-arg index="3" value="${vipSeats}"/>
-    </bean>
+    </bean> -->
     
+    <bean id="auditorium1" class="com.epam.spring.core.domain.Auditorium">
+        <constructor-arg index="0" value="1"/>
+        <constructor-arg index="1" value="Red Room"/>
+        <constructor-arg index="2" value="50"/>
+        <constructor-arg index="3" value="1,2,13,14,15"/>
+    </bean>
+
     <bean id="auditorium2" class="com.epam.spring.core.domain.Auditorium">
         <constructor-arg index="0" value="2"/>
         <constructor-arg index="1" value="Blue Room"/>

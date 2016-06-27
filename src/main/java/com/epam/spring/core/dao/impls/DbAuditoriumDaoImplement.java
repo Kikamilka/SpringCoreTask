@@ -5,6 +5,7 @@ import com.epam.spring.core.dao.interfaces.AuditoriumDao;
 import com.epam.spring.core.domain.Auditorium;
 import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 public class DbAuditoriumDaoImplement implements AuditoriumDao {
 

@@ -3,9 +3,7 @@ package com.epam.spring.core.services.impls.discounts;
 import com.epam.spring.core.domain.User;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import org.springframework.stereotype.Component;
 
-@Component("birthdayStrategy")
 public class BirthdayStrategy implements DiscountStrategy{
     
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");

@@ -7,10 +7,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("auditoriumService")
+//@Service("auditoriumService")
 public class AuditoriumServiceImplement implements AuditoriumService {
 
-    @Autowired
+    //@Autowired
     private AuditoriumDao auditoriumDao;
 
     public AuditoriumServiceImplement(AuditoriumDao auditoriumDao) {

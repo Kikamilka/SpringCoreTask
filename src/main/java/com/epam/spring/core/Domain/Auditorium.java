@@ -7,6 +7,9 @@ public class Auditorium {
     private int seatsNumber;
     private String vipSeats;
 
+    public Auditorium() {
+    }
+
     public Auditorium(String id, String name, int seatsNumber, String vipSeats) {
         this.id = id;
         this.name = name;

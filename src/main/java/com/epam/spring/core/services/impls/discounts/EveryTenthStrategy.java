@@ -4,9 +4,7 @@ import com.epam.spring.core.domain.Ticket;
 import com.epam.spring.core.domain.User;
 import java.util.Date;
 import java.util.List;
-import org.springframework.stereotype.Component;
 
-@Component("everyTenthTicket")
 public class EveryTenthStrategy implements DiscountStrategy{
     
     @Override

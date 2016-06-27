@@ -14,13 +14,13 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("bookingService")
+//@Service("bookingService")
 public class BookingServiceImplement implements BookingService {
 
-    @Autowired
+    //@Autowired
     private EventService eventService;
 
-    @Autowired
+    //@Autowired
     private DiscountService discountService;
 
     private final Map<User, List<Ticket>> bookedTickets = new HashMap<>();

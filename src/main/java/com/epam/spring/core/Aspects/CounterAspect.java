@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
 @Aspect
-//Component("counterAspect")
+//@Component("counterAspect")
 public class CounterAspect {
 
     private final Map<String, Integer> counter  = new HashMap<>();

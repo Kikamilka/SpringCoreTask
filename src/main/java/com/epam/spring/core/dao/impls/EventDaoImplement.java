@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.stereotype.Repository;
 
-@Repository("eventDao")
 public class EventDaoImplement implements EventDao {
 
     private final Map<String, Event> events = new HashMap<>();
@@ -41,7 +40,7 @@ public class EventDaoImplement implements EventDao {
     }
 
     @Override
-    public void assignAuditorium(String eventId, Auditorium auditorium, String date, String time) {
+    public void assignAuditorium(String eventId, String auditorium, String date, String time) {
         Event event = events.get(eventId);
         if (null != event) {
             event.setAuditorium(auditorium);

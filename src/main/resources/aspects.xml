@@ -8,10 +8,10 @@
 
     <aop:aspectj-autoproxy/>
 
-    <bean id="counterAspect" class="com.epam.spring.core.aspects.CounterAspect"/>
+<!--    <bean id="counterAspect" class="com.epam.spring.core.aspects.CounterAspect"/>
 
     <bean id="discountAspect" class="com.epam.spring.core.aspects.DiscountAspect"/>
 
     <bean id="luckyWinnerAspect" class="com.epam.spring.core.aspects.LuckyWinnerAspect"/>
-    
+-->
 </beans>

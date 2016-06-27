@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-@Service("userService")
+//@Service("userService")
 public class UserServiceImpement implements UserService {
 
-    @Autowired
+    //@Autowired
     private UserDao userDao;
 
     @Override

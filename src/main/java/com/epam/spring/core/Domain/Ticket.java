@@ -6,6 +6,10 @@ public class Ticket {
     private String seat;
     private String nameEvent;
 
+    public Ticket() {
+    }
+
+    
     public Ticket(String price, String seat, String nameEvent) {
         this.price = price;
         this.seat = seat;
@@ -20,12 +24,12 @@ public class Ticket {
         this.seat = seat;
     }
 
-    public String getName() {
+    public String getNameEvent() {
         return nameEvent;
     }
 
-    public void setName(String name) {
-        this.nameEvent = name;
+    public void setNameEvent(String nameEvent) {
+        this.nameEvent = nameEvent;
     }
 
     public String getPrice() {

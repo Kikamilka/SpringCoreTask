@@ -2,10 +2,10 @@ package com.epam.spring.core.dao.impls;
 
 import com.epam.spring.core.dao.impls.mappers.EventMapper;
 import com.epam.spring.core.dao.interfaces.EventDao;
-import com.epam.spring.core.domain.Auditorium;
 import com.epam.spring.core.domain.Event;
 import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 public class DbEventDaoImplement implements EventDao {
 
@@ -38,7 +38,7 @@ public class DbEventDaoImplement implements EventDao {
     public Event getByName(String name) {
         return jdbcTemplate.queryForObject("SELECT * FROM bookingservice.event "
                 + "WHERE name = ?",
-                new Object[]{name},
+                new Object[] {name}, 
                 new EventMapper());
     }
 
@@ -49,7 +49,7 @@ public class DbEventDaoImplement implements EventDao {
     }
 
     @Override
-    public void assignAuditorium(String eventId, Auditorium auditorium, String date, String time) {
+    public void assignAuditorium(String eventId, String auditorium, String date, String time) {
         Event event = jdbcTemplate.queryForObject("SELECT * FROM bookingservice.event "
                 + "WHERE id = ?",
                 new Object[] {eventId},

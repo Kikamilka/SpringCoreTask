@@ -1,6 +1,5 @@
 package com.epam.spring.core.dao.impls.mappers;
 
-import com.epam.spring.core.domain.Auditorium;
 import com.epam.spring.core.domain.Event;
 import com.epam.spring.core.domain.RatingEnum;
 import java.sql.ResultSet;
@@ -18,6 +17,6 @@ public class EventMapper implements RowMapper<Event> {
                 resultSet.getString("airTime"),
                 resultSet.getDouble("price"),
                 RatingEnum.valueOf(resultSet.getString("rating")), 
-                (Auditorium) resultSet.getObject("auditorium"));
+                resultSet.getString("auditorium"));
     }
 }

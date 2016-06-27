@@ -6,10 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
-@Repository("auditoriumDao")
 public class AuditoriumDaoImplement implements AuditoriumDao {
 
     private final Map<String, Auditorium> auditoriums = new HashMap<>();

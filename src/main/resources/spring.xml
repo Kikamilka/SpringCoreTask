@@ -6,26 +6,14 @@
 
     <import resource="services.xml"/>
     <import resource="aspects.xml"/>
-    
-    
-<!--    <bean id="app" class="com.epam.training.spring.core.practical.App">
+
+    <bean id="app" class="com.epam.spring.core.App">
         <constructor-arg index="0" ref="userService"/>
-        <constructor-arg index="1" ref="auditoriumService"/>
-        <constructor-arg index="2" ref="eventService"/>
-        <property name="emailUser" value="b@epam.com"/>
-        <property name="nameEvent" value="Event_2"/>
-    </bean>  -->
+        <constructor-arg index="1" ref="eventService"/>
+        <constructor-arg index="2" ref="auditoriumService"/>
+        <constructor-arg index="3" ref="discountService"/>
+        <constructor-arg index="4" ref="bookingService"/>
+        <property name="emailUser" value="petya@epam.com"/>
+        <property name="nameEvent" value="Event1"/>
+    </bean>  
 </beans>
-
-<!--    <context:component-scan base-package="com.epam.spring.core.Service"/>
-    <context:component-scan base-package="com.epam.spring.core.Dao"/>
-    <context:component-scan base-package="com.epam.spring.core.Aspects"/>
-
-    <import resource="discount.xml"/>
-    <import resource="users.xml"/>
-    <import resource="auditorium.xml"/>  
-    
-    <aop:aspectj-autoproxy /> 
-    
-
-</beans> -->

@@ -1,6 +1,5 @@
 package com.epam.spring.core.dao.interfaces;
 
-import com.epam.spring.core.domain.Auditorium;
 import com.epam.spring.core.domain.Event;
 import java.util.List;
 
@@ -14,5 +13,5 @@ public interface EventDao {
 
     List<Event> getAll();
 
-    void assignAuditorium(String eventId, Auditorium auditorium, String date, String time);
+    void assignAuditorium(String eventId, String auditorium, String date, String time);
 }

@@ -8,9 +8,13 @@ public class Event {
     private String airTime;
     private double price;
     private RatingEnum rating;
-    private Auditorium auditorium;
+    private String auditorium;
 
-    public Event(String id, String name, String airDate, String airTime, double price, RatingEnum rating, Auditorium auditorium) {
+    public Event() {
+    }
+
+    
+    public Event(String id, String name, String airDate, String airTime, double price, RatingEnum rating, String auditorium) {
         this.id = id;
         this.name = name;
         this.airDate = airDate;
@@ -52,11 +56,11 @@ public class Event {
         this.rating = rating;
     }
 
-    public Auditorium getAuditorium() {
+    public String getAuditorium() {
         return auditorium;
     }
 
-    public void setAuditorium(Auditorium auditorium) {
+    public void setAuditorium(String auditorium) {
         this.auditorium = auditorium;
     }
 

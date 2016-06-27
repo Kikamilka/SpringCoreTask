@@ -6,8 +6,6 @@
 
     
     <import resource="auditoriums.xml"/>
-    
-<!--    public Event(String id, String name, String airDate, String airTime, double price, RatingEnum rating, Auditorium auditorium) -->
 
     <bean id="event1" class="com.epam.spring.core.domain.Event">
         <constructor-arg index="0" value="1"/>
@@ -16,7 +14,7 @@
         <constructor-arg index="3" value="10:00"/>
         <constructor-arg index="4" value="200"/>
         <constructor-arg index="5" value="HIGH"/>
-        <constructor-arg index="6" ref="auditorium1"/>
+        <constructor-arg index="6" value="Red Room"/>
     </bean>
 
     <bean id="event2" class="com.epam.spring.core.domain.Event">
@@ -26,7 +24,7 @@
         <constructor-arg index="3" value="9:00"/>
         <constructor-arg index="4" value="150"/>
         <constructor-arg index="5" value="MID"/>
-        <constructor-arg index="6" ref="auditorium2"/>
+        <constructor-arg index="6" value="Blue Room"/>
     </bean>
     
 </beans>

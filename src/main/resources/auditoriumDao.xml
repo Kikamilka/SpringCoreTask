@@ -5,7 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
     
     <import resource="auditoriums.xml"/>
-    <bean id="auditoriumDao"
+<!--    <bean id="auditoriumDao"
           class="com.epam.spring.core.dao.impls.EventDaoImplement">
         <constructor-arg>
             <list>
@@ -14,7 +14,7 @@
             </list>
         </constructor-arg>
     </bean>
-
+-->
     <import resource="database.xml"/>
     <bean id="dbAuditorium" class="com.epam.spring.core.dao.impls.DbAuditoriumDaoImplement">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>

@@ -9,10 +9,13 @@ import java.util.Date;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
-@Service("discountService")
+//@Service("discountService")
 public class DiscountServiceImplement implements DiscountService {
 
     List<DiscountStrategy> discountStrategyList = new ArrayList<>();
+
+    public DiscountServiceImplement() {
+    }
 
     @Override
     public double getDiscount(User user, Event event, Date date) {

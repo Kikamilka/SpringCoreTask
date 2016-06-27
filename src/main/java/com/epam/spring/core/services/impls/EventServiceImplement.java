@@ -15,10 +15,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-@Service("eventService")
+//@Service("eventService")
 public class EventServiceImplement implements EventService {
 
-    @Autowired
+    //@Autowired
     private EventDao eventDao;
 
     private final Map<String, Event> events = new HashMap<>();
@@ -55,7 +55,7 @@ public class EventServiceImplement implements EventService {
     }
 
     @Override
-    public void assignAuditorium(Event event, Auditorium auditorium, Date date, Date time) {
+    public void assignAuditorium(Event event, String auditorium, Date date, Date time) {
         if (event != null && auditorium != null) {
             eventDao.assignAuditorium(event.getId(), auditorium, dateFormat.format(date), timeFormat.format(time));
         } else {

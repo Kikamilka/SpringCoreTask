@@ -1,6 +1,5 @@
 package com.epam.spring.core.services.interfaces;
 
-import com.epam.spring.core.domain.Auditorium;
 import com.epam.spring.core.domain.Event;
 import com.epam.spring.core.domain.RatingEnum;
 import java.util.Date;
@@ -16,5 +15,5 @@ public interface EventService {
 
     List<Event> getAll();
 
-    void assignAuditorium(Event event, Auditorium auditorium, Date date, Date time);
+    void assignAuditorium(Event event, String auditorium, Date date, Date time);
 }

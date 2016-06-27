@@ -5,6 +5,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
+@Aspect
+//@Component("luckyWinnerAspect")
 public class LuckyWinnerAspect {
 
     private int luckyTicketsCount;
@@ -18,7 +20,7 @@ public class LuckyWinnerAspect {
     public void checkLucky(Ticket ticket) {
         if (isLucky()) {
             ticket.setPrice("0");
-            System.out.println("Ticket '" + ticket.getName() + "' has price = " + ticket.getPrice());
+            System.out.println("Ticket '" + ticket.getNameEvent() + "' has price = " + ticket.getPrice());
         }
     }
 
