@@ -6,12 +6,13 @@ import com.epam.spring.core.dao.interfaces.UserDao;
 import com.epam.spring.core.domain.Ticket;
 import com.epam.spring.core.domain.User;
 import java.util.List;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 public class DbUserDaoImplement implements UserDao {
 
-    JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -24,10 +25,15 @@ public class DbUserDaoImplement implements UserDao {
                 user.getName(),
                 user.getEmail(),
                 user.getBirthday());
-        user.setId(jdbcTemplate.queryForObject("SELECT * FROM bookingservice.user "
-                + "WHERE email = ?",
-                new Object[]{user.getEmail()},
-                new UserMapper()).getId());
+        try {
+            user.setId(jdbcTemplate.queryForObject("SELECT * FROM bookingservice.user "
+                    + "WHERE email = ?",
+                    new Object[]{user.getEmail()},
+                    new UserMapper()).getId());
+        } catch (DataAccessException ex) {
+            System.out.println("User with email: " + user.getEmail() + "does'n exist");
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override
@@ -39,40 +45,65 @@ public class DbUserDaoImplement implements UserDao {
 
     @Override
     public User getById(String id) {
-        return jdbcTemplate.queryForObject("SELECT * FROM bookingservice.user "
-                + "WHERE id = ?",
-                new Object[]{id},
-                new UserMapper());
+        try {
+            return jdbcTemplate.queryForObject("SELECT * FROM bookingservice.user "
+                    + "WHERE id = ?",
+                    new Object[]{id},
+                    new UserMapper());
+        } catch (DataAccessException ex) {
+            System.out.println("User with id: " + id + "does'n exist");
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override
     public User getUsersByName(String name) {
-        return jdbcTemplate.queryForObject("SELECT * FROM bookingservice.user "
-                + "WHERE name = ?",
-                new Object[]{name},
-                new UserMapper());
+        try {
+            return jdbcTemplate.queryForObject("SELECT * FROM bookingservice.user "
+                    + "WHERE name = ?",
+                    new Object[]{name},
+                    new UserMapper());
+        } catch (DataAccessException ex) {
+            System.out.println("User with name: " + name + "does'n exist");
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override
     public User getUserByEmail(String email) {
-        return jdbcTemplate.queryForObject("SELECT * FROM bookingservice.user "
-                + "WHERE email = ?",
-                new Object[]{email},
-                new UserMapper());
+        try {
+            return jdbcTemplate.queryForObject("SELECT * FROM bookingservice.user "
+                    + "WHERE email = ?",
+                    new Object[]{email},
+                    new UserMapper());
+        } catch (DataAccessException ex) {
+            System.out.println("User with email: " + email + "does'n exist");
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override
     public List<Ticket> getBookedTickets(String userId) {
-        return jdbcTemplate.query("SELECT * FROM bookingservice.bookedticket "
-                + "WHERE idUser = ?",
-                new Object[]{userId},
-                new TicketMapper());
+        try {
+            return jdbcTemplate.query("SELECT * FROM bookingservice.bookedticket "
+                    + "WHERE idUser = ?",
+                    new Object[]{userId},
+                    new TicketMapper());
+        } catch (DataAccessException ex) {
+            System.out.println("User with id: " + userId + "does'n exist");
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override
     public List<User> getAll() {
-        return jdbcTemplate.query("SELECT * FROM bookingservice.user ",
-                new UserMapper());
+        try {
+            return jdbcTemplate.query("SELECT * FROM bookingservice.user ",
+                    new UserMapper());
+        } catch (DataAccessException ex) {
+            System.out.println("Users list does'n exist");
+            throw new RuntimeException(ex);
+        }
     }
 
 }

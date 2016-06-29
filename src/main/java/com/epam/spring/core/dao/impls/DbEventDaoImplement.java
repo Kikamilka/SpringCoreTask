@@ -4,12 +4,13 @@ import com.epam.spring.core.dao.impls.mappers.EventMapper;
 import com.epam.spring.core.dao.interfaces.EventDao;
 import com.epam.spring.core.domain.Event;
 import java.util.List;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 public class DbEventDaoImplement implements EventDao {
 
-    JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -36,26 +37,41 @@ public class DbEventDaoImplement implements EventDao {
 
     @Override
     public Event getByName(String name) {
-        return jdbcTemplate.queryForObject("SELECT * FROM bookingservice.event "
-                + "WHERE name = ?",
-                new Object[] {name}, 
-                new EventMapper());
+        try {
+            return jdbcTemplate.queryForObject("SELECT * FROM bookingservice.event "
+                    + "WHERE name = ?",
+                    new Object[]{name},
+                    new EventMapper());
+        } catch (DataAccessException ex) {
+            System.out.println("Event with name: " + name + "does'n exist");
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override
     public List<Event> getAll() {
-        return jdbcTemplate.query("SELECT * FROM bookingservice.event ",
-                new EventMapper());
+        try {
+            return jdbcTemplate.query("SELECT * FROM bookingservice.event ",
+                    new EventMapper());
+        } catch (DataAccessException ex) {
+            System.out.println("Events list does'n exist");
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override
     public void assignAuditorium(String eventId, String auditorium, String date, String time) {
-        Event event = jdbcTemplate.queryForObject("SELECT * FROM bookingservice.event "
-                + "WHERE id = ?",
-                new Object[] {eventId},
-                new EventMapper());
-        event.setAuditorium(auditorium);
-        event.setAirDate(date);
-        event.setAirTime(time);
+        try {
+            Event event = jdbcTemplate.queryForObject("SELECT * FROM bookingservice.event "
+                    + "WHERE id = ?",
+                    new Object[]{eventId},
+                    new EventMapper());
+            event.setAuditorium(auditorium);
+            event.setAirDate(date);
+            event.setAirTime(time);
+        } catch (DataAccessException ex) {
+            System.out.println("Event with id: " + eventId + "does'n exist");
+            throw new RuntimeException(ex);
+        }
     }
 }

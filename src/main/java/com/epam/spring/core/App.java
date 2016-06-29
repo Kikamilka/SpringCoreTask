@@ -5,6 +5,7 @@ import com.epam.spring.core.services.interfaces.BookingService;
 import com.epam.spring.core.services.interfaces.DiscountService;
 import com.epam.spring.core.services.interfaces.EventService;
 import com.epam.spring.core.services.interfaces.UserService;
+import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -92,7 +93,7 @@ public class App {
         this.auditoriumService = auditoriumService;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BeansException {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
         App app = (App) ctx.getBean("app");
         System.out.println(String.format("User with email (%s)", app.getEmailUser()));
