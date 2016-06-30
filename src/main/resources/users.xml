@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:util="http://www.springframework.org/schema/util"
-       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
-                            http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
-                            http://www.springframework.org/schema/context
-                            http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+                            http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
-    <bean id="user1" class="com.epam.spring.core.Domain.User">
+    <bean id="user1" class="com.epam.spring.core.domain.User">
         <property name="id" value="1"/>
         <property name="name" value="Kamila Zaeva"/>
         <property name="email" value="Kamila_Zaeva@epam.com"/>
@@ -16,7 +12,7 @@
         <property name="tickets" ref="ticket1"/>
     </bean>
     
-    <bean id="user2" class="com.epam.spring.core.Domain.User">
+    <bean id="user2" class="com.epam.spring.core.domain.User">
         <property name="id" value="2"/>
         <property name="name" value="Vasya Pupkin"/>
         <property name="email" value="Vasya_Pupkin@epam.com"/>
@@ -24,7 +20,7 @@
         <property name="tickets" ref="ticket2"/>
     </bean>
     
-    <bean id="user3" class="com.epam.spring.core.Domain.User">
+    <bean id="user3" class="com.epam.spring.core.domain.User">
         <property name="id" value="3"/>
         <property name="name" value="Kot Obyknovenniy"/>
         <property name="email" value="Kot_Obyknovenniy@epam.com"/>
@@ -32,22 +28,22 @@
         <property name="tickets" ref="ticket3"/>
     </bean>
     
-    <bean id="ticket1" class="com.epam.spring.core.Domain.Ticket">
-        <property name ="id" value="1a"/>
-        <property name="name" value="Ticket 1"/>
-        <property name="price" value="3.5"/>
+    <bean id="ticket1" class="com.epam.spring.core.domain.Ticket">
+        <property name ="price" value="3.5"/>
+        <property name="seat" value="10"/>
+        <property name="nameEvent" value="Sinema_1"/>
     </bean>
     
-    <bean id="ticket2" class="com.epam.spring.core.Domain.Ticket">
-        <property name ="id" value="1b"/>
-        <property name="name" value="Ticket 2"/>
-        <property name="price" value="3.00"/>
+    <bean id="ticket2" class="com.epam.spring.core.domain.Ticket">
+        <property name ="price" value="3.00"/>
+        <property name="seat" value="1"/>
+        <property name="nameEvent" value="Sinema_2"/>
     </bean>
     
-    <bean id="ticket3" class="com.epam.spring.core.Domain.Ticket">
-        <property name ="id" value="1c"/>
-        <property name="name" value="Ticket 3"/>
-        <property name="price" value="3.25"/>
+    <bean id="ticket3" class="com.epam.spring.core.domain.Ticket">
+        <property name ="price" value="3.55"/>
+        <property name="seat" value="20"/>
+        <property name="nameEvent" value="Sinema_1"/>
     </bean>
-    
+
 </beans>
