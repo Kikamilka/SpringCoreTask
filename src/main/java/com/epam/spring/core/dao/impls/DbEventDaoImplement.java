@@ -5,10 +5,8 @@ import com.epam.spring.core.dao.impls.mappers.EventMapper;
 import com.epam.spring.core.dao.interfaces.EventDao;
 import com.epam.spring.core.domain.Event;
 import java.util.List;
-import java.util.logging.Level;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 
 public class DbEventDaoImplement implements EventDao {
 
@@ -45,14 +43,9 @@ public class DbEventDaoImplement implements EventDao {
                     new Object[]{name},
                     new EventMapper());
         } catch (DataAccessException ex) {
-            System.out.println("Event with name: " + name + "does'n exist");
-            try {                
-                throw new DaoDbExeption(ex.getMessage());
-            } catch (DaoDbExeption ex1) {
-                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
-            }
+            System.out.println("Error message" + ex.getMessage());
+            throw new DaoDbExeption(ex);
         }
-        return null;
     }
 
     @Override
@@ -61,14 +54,9 @@ public class DbEventDaoImplement implements EventDao {
             return jdbcTemplate.query("SELECT * FROM bookingservice.event ",
                     new EventMapper());
         } catch (DataAccessException ex) {
-            System.out.println("Events list does'n exist");
-            try {                
-                throw new DaoDbExeption(ex.getMessage());
-            } catch (DaoDbExeption ex1) {
-                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
-            }
+            System.out.println("Error message" + ex.getMessage());
+            throw new DaoDbExeption(ex);
         }
-        return null;
     }
 
     @Override
@@ -82,12 +70,8 @@ public class DbEventDaoImplement implements EventDao {
             event.setAirDate(date);
             event.setAirTime(time);
         } catch (DataAccessException ex) {
-            System.out.println("Event with id: " + eventId + "does'n exist");
-            try {                
-                throw new DaoDbExeption(ex.getMessage());
-            } catch (DaoDbExeption ex1) {
-                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
-            }
+            System.out.println("Error message" + ex.getMessage());
+            throw new DaoDbExeption(ex);
         }
     }
 }

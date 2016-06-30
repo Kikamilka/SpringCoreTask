@@ -5,10 +5,8 @@ import com.epam.spring.core.dao.impls.mappers.AuditoriumMapper;
 import com.epam.spring.core.dao.interfaces.AuditoriumDao;
 import com.epam.spring.core.domain.Auditorium;
 import java.util.List;
-import java.util.logging.Level;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 
 public class DbAuditoriumDaoImplement implements AuditoriumDao {
 
@@ -31,12 +29,8 @@ public class DbAuditoriumDaoImplement implements AuditoriumDao {
                     new Object[]{auditorium.getName()},
                     new AuditoriumMapper()).getId());
         } catch (DataAccessException ex) {
-            System.out.println("Auditorium with name: " + auditorium.getName() + "does'n exist");
-            try {                
-                throw new DaoDbExeption(ex.getMessage());
-            } catch (DaoDbExeption ex1) {
-                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
-            }
+            System.out.println("Error message" + ex.getMessage());
+            throw new DaoDbExeption(ex);
         }
     }
 
@@ -46,14 +40,9 @@ public class DbAuditoriumDaoImplement implements AuditoriumDao {
             return jdbcTemplate.query("SELECT * FROM bookingservice.auditorium ",
                     new AuditoriumMapper());
         } catch (DataAccessException ex) {
-            System.out.println("Auditoriums list does'n exist");
-            try {                
-                throw new DaoDbExeption(ex.getMessage());
-            } catch (DaoDbExeption ex1) {
-                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
-            }
+            System.out.println("Error message" + ex.getMessage());
+            throw new DaoDbExeption(ex);
         }
-        return null;
     }
 
     @Override
@@ -65,13 +54,9 @@ public class DbAuditoriumDaoImplement implements AuditoriumDao {
                     new AuditoriumMapper()).getSeatsNumber();
         } catch (DataAccessException ex) {
             System.out.println("Auditorium with id: " + auditoriumId + "does'n exist");
-            try {                
-                throw new DaoDbExeption(ex.getMessage());
-            } catch (DaoDbExeption ex1) {
-                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
-            }
+            System.out.println("Error message" + ex.getMessage());
+            throw new DaoDbExeption(ex);
         }
-        return -1;
     }
 
     @Override
@@ -82,13 +67,8 @@ public class DbAuditoriumDaoImplement implements AuditoriumDao {
                     new Object[]{auditoriumId},
                     new AuditoriumMapper()).getVipSeats();
         } catch (DataAccessException ex) {
-            System.out.println("Auditorium with id: " + auditoriumId + "does'n exist");
-            try {                
-                throw new DaoDbExeption(ex.getMessage());
-            } catch (DaoDbExeption ex1) {
-                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
-            }
+            System.out.println("Error message" + ex.getMessage());
+            throw new DaoDbExeption(ex);
         }
-        return null;
     }
 }

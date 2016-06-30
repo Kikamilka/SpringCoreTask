@@ -7,10 +7,8 @@ import com.epam.spring.core.dao.interfaces.UserDao;
 import com.epam.spring.core.domain.Ticket;
 import com.epam.spring.core.domain.User;
 import java.util.List;
-import java.util.logging.Level;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 
 public class DbUserDaoImplement implements UserDao {
 
@@ -33,12 +31,8 @@ public class DbUserDaoImplement implements UserDao {
                     new Object[]{user.getEmail()},
                     new UserMapper()).getId());
         } catch (DataAccessException ex) {
-            System.out.println("User with email: " + user.getEmail() + "does'n exist");
-            try {                
-                throw new DaoDbExeption(ex.getMessage());
-            } catch (DaoDbExeption ex1) {
-                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
-            }
+            System.out.println("Error message" + ex.getMessage());
+            throw new DaoDbExeption(ex);
         }
     }
 
@@ -57,14 +51,9 @@ public class DbUserDaoImplement implements UserDao {
                     new Object[]{id},
                     new UserMapper());
         } catch (DataAccessException ex) {
-            System.out.println("User with id: " + id + "does'n exist");
-            try {                
-                throw new DaoDbExeption(ex.getMessage());
-            } catch (DaoDbExeption ex1) {
-                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
-            }
+            System.out.println("Error message" + ex.getMessage());
+            throw new DaoDbExeption(ex);
         }
-        return null;
     }
 
     @Override
@@ -75,14 +64,9 @@ public class DbUserDaoImplement implements UserDao {
                     new Object[]{name},
                     new UserMapper());
         } catch (DataAccessException ex) {
-            System.out.println("User with name: " + name + "does'n exist");
-            try {                
-                throw new DaoDbExeption(ex.getMessage());
-            } catch (DaoDbExeption ex1) {
-                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
-            }
+            System.out.println("Error message" + ex.getMessage());
+            throw new DaoDbExeption(ex);
         }
-        return null;
     }
 
     @Override
@@ -93,14 +77,9 @@ public class DbUserDaoImplement implements UserDao {
                     new Object[]{email},
                     new UserMapper());
         } catch (DataAccessException ex) {
-            System.out.println("User with email: " + email + "does'n exist");
-            try {                
-                throw new DaoDbExeption(ex.getMessage());
-            } catch (DaoDbExeption ex1) {
-                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
-            }
+            System.out.println("Error message" + ex.getMessage());
+            throw new DaoDbExeption(ex);
         }
-        return null;
     }
 
     @Override
@@ -111,14 +90,9 @@ public class DbUserDaoImplement implements UserDao {
                     new Object[]{userId},
                     new TicketMapper());
         } catch (DataAccessException ex) {
-            System.out.println("User with id: " + userId + "does'n exist");
-            try {                
-                throw new DaoDbExeption(ex.getMessage());
-            } catch (DaoDbExeption ex1) {
-                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
-            }
+            System.out.println("Error message" + ex.getMessage());
+            throw new DaoDbExeption(ex);
         }
-        return null;
     }
 
     @Override
@@ -127,14 +101,9 @@ public class DbUserDaoImplement implements UserDao {
             return jdbcTemplate.query("SELECT * FROM bookingservice.user ",
                     new UserMapper());
         } catch (DataAccessException ex) {
-            System.out.println("Users list does'n exist");
-            try {                
-                throw new DaoDbExeption(ex.getMessage());
-            } catch (DaoDbExeption ex1) {
-                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
-            }
+            System.out.println("Error message" + ex.getMessage());
+            throw new DaoDbExeption(ex);
         }
-        return null;
     }
 
 }
