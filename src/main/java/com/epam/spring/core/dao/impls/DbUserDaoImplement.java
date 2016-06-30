@@ -1,11 +1,13 @@
 package com.epam.spring.core.dao.impls;
 
+import com.epam.spring.core.dao.impls.exeptions.DaoDbExeption;
 import com.epam.spring.core.dao.impls.mappers.TicketMapper;
 import com.epam.spring.core.dao.impls.mappers.UserMapper;
 import com.epam.spring.core.dao.interfaces.UserDao;
 import com.epam.spring.core.domain.Ticket;
 import com.epam.spring.core.domain.User;
 import java.util.List;
+import java.util.logging.Level;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -32,7 +34,11 @@ public class DbUserDaoImplement implements UserDao {
                     new UserMapper()).getId());
         } catch (DataAccessException ex) {
             System.out.println("User with email: " + user.getEmail() + "does'n exist");
-            throw new RuntimeException(ex);
+            try {                
+                throw new DaoDbExeption(ex.getMessage());
+            } catch (DaoDbExeption ex1) {
+                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
+            }
         }
     }
 
@@ -52,8 +58,13 @@ public class DbUserDaoImplement implements UserDao {
                     new UserMapper());
         } catch (DataAccessException ex) {
             System.out.println("User with id: " + id + "does'n exist");
-            throw new RuntimeException(ex);
+            try {                
+                throw new DaoDbExeption(ex.getMessage());
+            } catch (DaoDbExeption ex1) {
+                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
+            }
         }
+        return null;
     }
 
     @Override
@@ -65,8 +76,13 @@ public class DbUserDaoImplement implements UserDao {
                     new UserMapper());
         } catch (DataAccessException ex) {
             System.out.println("User with name: " + name + "does'n exist");
-            throw new RuntimeException(ex);
+            try {                
+                throw new DaoDbExeption(ex.getMessage());
+            } catch (DaoDbExeption ex1) {
+                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
+            }
         }
+        return null;
     }
 
     @Override
@@ -78,8 +94,13 @@ public class DbUserDaoImplement implements UserDao {
                     new UserMapper());
         } catch (DataAccessException ex) {
             System.out.println("User with email: " + email + "does'n exist");
-            throw new RuntimeException(ex);
+            try {                
+                throw new DaoDbExeption(ex.getMessage());
+            } catch (DaoDbExeption ex1) {
+                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
+            }
         }
+        return null;
     }
 
     @Override
@@ -91,8 +112,13 @@ public class DbUserDaoImplement implements UserDao {
                     new TicketMapper());
         } catch (DataAccessException ex) {
             System.out.println("User with id: " + userId + "does'n exist");
-            throw new RuntimeException(ex);
+            try {                
+                throw new DaoDbExeption(ex.getMessage());
+            } catch (DaoDbExeption ex1) {
+                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
+            }
         }
+        return null;
     }
 
     @Override
@@ -102,8 +128,13 @@ public class DbUserDaoImplement implements UserDao {
                     new UserMapper());
         } catch (DataAccessException ex) {
             System.out.println("Users list does'n exist");
-            throw new RuntimeException(ex);
+            try {                
+                throw new DaoDbExeption(ex.getMessage());
+            } catch (DaoDbExeption ex1) {
+                java.util.logging.Logger.getLogger(DbAuditoriumDaoImplement.class.getName()).log(Level.SEVERE, null, ex1);
+            }
         }
+        return null;
     }
 
 }
