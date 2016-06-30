@@ -11,9 +11,9 @@ import org.springframework.stereotype.Component;
 public class CounterAspect {
 
     private final Map<String, Integer> counter  = new HashMap<>();
-    int eventCounter = 0;
-    int priceCounter = 0;
-    int ticketCounter = 0;
+    private int eventCounter = 0;
+    private int priceCounter = 0;
+    private int ticketCounter = 0;
     private static final String EVENT_KEY = "EVENT";
     private static final String PRICE_KEY = "PRICE";
     private static final String TICKET_KEY = "TICKET";

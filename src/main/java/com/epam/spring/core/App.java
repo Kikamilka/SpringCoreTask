@@ -25,7 +25,7 @@ public class App {
     public App() {
     }
 
-    App(UserService userService, EventService eventService, AuditoriumService auditoriumService,
+    public App(UserService userService, EventService eventService, AuditoriumService auditoriumService,
             DiscountService discountService, BookingService bookingService) {
         this.userService = userService;
         this.eventService = eventService;
