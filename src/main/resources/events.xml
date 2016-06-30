@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    
+    <import resource="auditoriums.xml"/>
+
+    <bean id="event1" class="com.epam.spring.core.domain.Event">
+        <constructor-arg index="0" value="1"/>
+        <constructor-arg index="1" value="Sinema_1"/>
+        <constructor-arg index="2" value="25.06.2016"/>
+        <constructor-arg index="3" value="10:00"/>
+        <constructor-arg index="4" value="200"/>
+        <constructor-arg index="5" value="HIGH"/>
+        <constructor-arg index="6" value="Red Room"/>
+    </bean>
+
+    <bean id="event2" class="com.epam.spring.core.domain.Event">
+        <constructor-arg index="0" value="2"/>
+        <constructor-arg index="1" value="Sinema_2"/>
+        <constructor-arg index="2" value="28.06.2016"/>
+        <constructor-arg index="3" value="9:00"/>
+        <constructor-arg index="4" value="150"/>
+        <constructor-arg index="5" value="MID"/>
+        <constructor-arg index="6" value="Blue Room"/>
+    </bean>
+    
+</beans>

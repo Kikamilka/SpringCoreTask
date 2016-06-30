@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    
+    <import resource="users.xml"/>
+    <import resource="database.xml"/>
+
+<!--    <bean id="userDao" class="com.epam.spring.core.dao.impls.UserDaoImplement">
+        <<property name="users">
+            <map>
+                <ref bean="user1"/>
+                <ref bean="user2"/>
+            </map>
+        </property>
+    </bean>
+    -->
+    <bean id="dbUser" class="com.epam.spring.core.dao.impls.DbUserDaoImplement">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+
+</beans>

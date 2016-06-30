@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+    
+    <import resource="auditoriums.xml"/>
+<!--    <bean id="auditoriumDao"
+          class="com.epam.spring.core.dao.impls.EventDaoImplement">
+        <constructor-arg>
+            <list>
+                <ref bean="auditorium1"/>
+                <ref bean="auditorium2"/>
+            </list>
+        </constructor-arg>
+    </bean>
+-->
+    <import resource="database.xml"/>
+    <bean id="dbAuditorium" class="com.epam.spring.core.dao.impls.DbAuditoriumDaoImplement">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+
+</beans>
